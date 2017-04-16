@@ -1,6 +1,7 @@
 package example.com.spacefighter.model.flights;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
@@ -46,12 +47,35 @@ public class Player extends Flights{
     public void setBoosting() {
         boosting = true;
     }
+
+    @Override
+    public float getStarWidth() {
+        return 0;
+    }
+
     //setting boosting false
     public void stopBoosting() {
         boosting = false;
     }
 
+
+    @Override
+    public void setX(int x) {
+
+    }
+
+    @Override
+    public void setY(int y) {
+
+    }
+
+    @Override
+    public void setBitmap(Bitmap bitmap) {
+
+    }
+
     //Method to update coordinate of character
+    @Override
     public void update(){
         //if the ship is boosting
         if (boosting) {

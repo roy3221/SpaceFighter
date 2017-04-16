@@ -6,10 +6,12 @@ import android.graphics.Rect;
 
 import java.util.Random;
 
+import example.com.spacefighter.model.ModelInterface;
+
 /**
  * Created by churong1 on 4/15/17.
  */
-public abstract class Flights {
+public abstract class Flights implements ModelInterface {
     protected Bitmap bitmap;
     protected int x;
     protected int y;
@@ -36,7 +38,7 @@ public abstract class Flights {
         x = screenX;
     }
 
-
+    @Override
     public void update(int playerSpeed) {
         //decreasing x coordinate so that enemy will move right to left
         x -= playerSpeed;
@@ -57,22 +59,23 @@ public abstract class Flights {
     }
 
     //getters
+    @Override
     public Rect getDetectCollision() {
         return detectCollision;
     }
-
+    @Override
     public Bitmap getBitmap() {
         return bitmap;
     }
-
+    @Override
     public int getX() {
         return x;
     }
-
+    @Override
     public int getY() {
         return y;
     }
-
+    @Override
     public int getSpeed() {
         return speed;
     }

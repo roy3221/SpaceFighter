@@ -1,11 +1,14 @@
 package example.com.spacefighter.model;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+
 import java.util.Random;
 
 /**
  * Created by churong1 on 4/14/17.
  */
-public class Star {
+public class Star implements ModelInterface{
 
     private int x;
     private int y;
@@ -48,6 +51,22 @@ public class Star {
         }
     }
 
+    @Override
+    public Rect getDetectCollision() {
+        return null;
+    }
+
+    @Override
+    public void stopBoosting() {
+
+    }
+
+    @Override
+    public void setBoosting() {
+
+    }
+
+    @Override
     public float getStarWidth() {
         //Making the star width random so that
         //it will give a real look
@@ -58,11 +77,41 @@ public class Star {
         return finalX;
     }
 
+    @Override
+    public void setX(int x) {
+
+    }
+
+    @Override
+    public void setY(int y) {
+
+    }
+
+    @Override
+    public Bitmap getBitmap() {
+        return null;
+    }
+
+    @Override
+    public void setBitmap(Bitmap bitmap) {
+
+    }
+
     public int getX() {
         return x;
     }
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public int getSpeed() {
+        return 0;
+    }
+
+    @Override
+    public void update() {
+
     }
 }

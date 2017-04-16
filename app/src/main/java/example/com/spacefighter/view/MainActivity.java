@@ -1,47 +1,54 @@
-package example.com.spacefighter.controller;
+package example.com.spacefighter.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Point;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Display;
+import android.view.View;
+import android.widget.ImageButton;
 
-import example.com.spacefighter.view.GameView;
+import example.com.spacefighter.R;
 
-public class GameActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private GameView gameView; // game activity controls game view.
+    //image button
+    private ImageButton buttonPlay;
+    //high score button
+    private ImageButton buttonScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        //Getting display object
-        Display display = getWindowManager().getDefaultDisplay();
+        //setting the orientation to landscape
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        //Getting the screen resolution into point object
-        Point size = new Point();
-        display.getSize(size);
-        //Initializing game view object
-        //this time we are also passing the screen size to the GameView constructor
-        gameView = new GameView(this, size.x, size.y);
-        setContentView(gameView);
+        //getting the button
+        buttonPlay = (ImageButton) findViewById(R.id.buttonPlay);
+
+        //adding a click listener
+        buttonPlay.setOnClickListener(this);
+        //initializing the highscore button
+        buttonScore = (ImageButton) findViewById(R.id.buttonScore);
+        buttonScore.setOnClickListener(this);
+
     }
 
-    //pausing the game when activity is paused
     @Override
-    protected void onPause() {
-        super.onPause();
-        gameView.pause();
-    }
+    public void onClick(View v) {
 
-    //running the game when activity is resumed
-    @Override
-    protected void onResume() {
-        super.onResume();
-        gameView.resume();
+        if (v == buttonPlay) {
+            //the transition from MainActivity to GameActivity
+            startActivity(new Intent(MainActivity.this, GameActivity.class));
+        }
+        if (v == buttonScore) {
+
+            //the transition from MainActivity to HighScore activity
+            startActivity(new Intent(MainActivity.this, HighScore.class));
+        }
     }
 
     @Override

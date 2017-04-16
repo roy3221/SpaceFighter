@@ -3,13 +3,14 @@ package example.com.spacefighter.model;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 
 import example.com.spacefighter.R;
 
 /**
  * Created by churong1 on 4/14/17.
  */
-public class Boom {
+public class Boom implements ModelInterface{
     //bitmap object
     private Bitmap bitmap;
 
@@ -56,4 +57,40 @@ public class Boom {
     public int getY() {
         return y;
     }
+
+    @Override
+    public int getSpeed() {
+        return 0;
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    public void update(int speed) {
+
+    }
+
+    @Override
+    public Rect getDetectCollision() {
+        return null;
+    }
+
+    @Override
+    public void stopBoosting() {
+
+    }
+
+    @Override
+    public void setBoosting() {
+
+    }
+
+    @Override
+    public float getStarWidth() {
+        return 0;
+    }
+
 }
